@@ -1,0 +1,58 @@
+var mock = require("../../mocks/TestData/locators")
+
+describe("Movado", () => {
+
+    // after(() => {
+    //     brow
+    //     console.log("after1");
+    // })
+
+    it("HomePage Pop up handeled", () => {
+        //  browser.pause(5000);
+
+        browser.click(mock.continuePopup);
+
+
+        browser.pause(5000);
+        console.log("Continue PopUp is handeled")
+
+    });
+
+    // it("Category is selected", () => {
+    //     browser.pause(5000);
+
+    //     browser.moveTo("//a[@id='shop-watches']");
+
+    //     browser.click(mock.mens_category);
+
+    //     browser.pause(5000);
+    //     console.log("Category is selected")
+
+    // });
+
+    it("Directly land on Category page", () => {
+        browser.url("https://storefront:movado123@dev13-na-movadogroup.demandware.net/s/MovadoUS/en_US/shop-watches/mens-designs/");
+
+
+        browser.pause(5000);
+        console.log("Landed directly on Category page")
+
+        browser.click(mock.thirdProduct);
+
+    });
+    it("Landed PDP Page", () => {
+
+        browser.click(mock.addToCartButton);
+        console.log("Product added in the cart");
+        browser.pause(3000)
+        browser.click(mock.conitnueCheckout);
+        browser.pause(3000)
+
+    });
+
+    before(() => {
+        browser.url('https://storefront:movado123@dev13-na-movadogroup.demandware.net/s/MovadoUS/en_US/home');
+        browser.pause(3000);
+        console.log("URL Lanuched");
+    })
+});
